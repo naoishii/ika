@@ -1,0 +1,29 @@
+{
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true
+    },
+    "ecmaFeatures": {
+        "jsx": true,
+        "modules": true
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "quotes": [1, "single", "avoid-escape"],
+        "no-underscore-dangle": 0,
+        "comma-dangle": 0,
+        "no-alert": 0,
+        "no-unused-expressions": 1,
+        "no-use-before-define": 1,
+        "no-empy": 0,
+        "no-unused-vars": 1,
+        "no-multi-spaces": 0,
+        "strict": 0,
+        "new-cap": 1,
+        "consistent-return": 0,
+        "dot-notation": 0
+    }
+}
