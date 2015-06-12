@@ -7,4 +7,8 @@ export default class MessageActions extends Actions {
         return buki;
     }
 
+    createRecord(data) {
+        return data;
+    }
+
 }

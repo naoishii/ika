@@ -7,6 +7,9 @@ export default class MessageStore extends Store {
 
         const reportActionIds = flux.getActionIds('reports');
         this.register(reportActionIds.createMessage, this.handleNewMessage);
+        this.register(reportActionIds.createRecord, this.handleNewReport);
+        
+
 
         this.state = {
             reports: [
@@ -36,8 +39,12 @@ export default class MessageStore extends Store {
     }
 
     handleNewReport(report) {
+        console.log(report, this.state);
+
+        this.state.reports.push(report);
+
         this.setState({
-            reports: this.state.reports,
+            reports: this.state.reports
         });
     }
 

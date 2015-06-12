@@ -2,6 +2,7 @@ import React from 'react';
 import FluxComponent from 'flummox/component';
 
 import ResultList from './ResultList';
+import RecordAdd from './RecordAdd';
 
 export default class Report extends React.Component {
     constructor(props) {
@@ -14,6 +15,7 @@ export default class Report extends React.Component {
                 <h1>Hello World</h1>
                 <FluxComponent connectToStores={['reports']}>
                     <ResultList />
+                    <RecordAdd />
                 </FluxComponent>
 
             </div>
