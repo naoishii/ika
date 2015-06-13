@@ -8,44 +8,38 @@ export default class MessageStore extends Store {
         const reportActionIds = flux.getActionIds('reports');
         this.register(reportActionIds.createMessage, this.handleNewMessage);
         this.register(reportActionIds.createRecord, this.handleNewReport);
-        
+
+        var reports = this.getData();
 
 
         this.state = {
-            reports: [
-                {
-                    map: 'b_bus',
-                    buki: 'p_shooter',
-                    kill: 5,
-                    death: 3,
-                    result: 'win'
-                },
-                {
-                    map: 'b_bus',
-                    buki: 'p_shooter',
-                    kill: 9,
-                    death: 5,
-                    result: 'win'
-                },
-                {
-                    map: 'b_bus',
-                    buki: 'p_shooter',
-                    kill: 3,
-                    death: 5,
-                    result: 'win'
-                },
-            ],
+            reports: reports,
         };
     }
 
     handleNewReport(report) {
         console.log(report, this.state);
 
-        this.state.reports.push(report);
+        var reports = this.state.reports;
+
+        reports.push(report);
 
         this.setState({
-            reports: this.state.reports
+            reports: reports
         });
+
+        this.saveData(reports);
+    }
+
+    // 今はLSだが、API経由のDBにする。
+    getData() {
+        var reports =  JSON.parse(localStorage.getItem('reports')) || [];
+        console.log(reports, localStorage.getItem('reports'));
+        return reports;
+    }
+
+    saveData(reports) {
+        localStorage.setItem('reports', JSON.stringify(reports));
     }
 
 }
