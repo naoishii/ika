@@ -1,9 +1,16 @@
 import React from 'react';
-import FluxComponent from 'flummox/component';
 
 export default class ResultList extends React.Component {
     constructor(props) {
         super(props);
+    }
+
+    calcRate(kill, death) {
+        if (death === 0) {
+            death = 1;
+        }
+
+        return kill / death;
     }
 
     render() {
@@ -13,16 +20,35 @@ export default class ResultList extends React.Component {
 
         items = results.map(result => {
             return (
-                <div>
-                    たおした: {result.kill}
-                </div>
+                <tr>
+                    <td>{result.buki}</td>
+                    <td>{result.map}</td>
+                    <td>{result.kill}</td>
+                    <td>{result.death}</td>
+                    <td>{result.result}</td>
+                    <td>{this.calcRate(result.kill, result.death)}</td>
+                </tr>
             );
         });
+
         return (
             <div>
-                {items}
+                <table className="pure-table">
+                    <thead>
+                        <tr>
+                            <th>ブキ</th>
+                            <th>マップ</th>
+                            <th>たおした</th>
+                            <th>やられた</th>
+                            <th>勝敗</th>
+                            <th>キルレ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {items}
+                    </tbody>
+                </table>
             </div>
         );
     }
 }
-
