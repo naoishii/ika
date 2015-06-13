@@ -18,7 +18,6 @@ export default class MessageStore extends Store {
     }
 
     handleNewReport(report) {
-        console.log(report, this.state);
 
         var reports = this.state.reports;
 
@@ -34,7 +33,6 @@ export default class MessageStore extends Store {
     // 今はLSだが、API経由のDBにする。
     getData() {
         var reports =  JSON.parse(localStorage.getItem('reports')) || [];
-        console.log(reports, localStorage.getItem('reports'));
         return reports;
     }
 

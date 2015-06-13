@@ -16,7 +16,6 @@ export default class ResultList extends React.Component {
     render() {
         var results = this.props.reports,
             items;
-        console.log(results);
 
         items = results.map(result => {
             return (

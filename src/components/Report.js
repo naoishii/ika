@@ -13,7 +13,6 @@ export default class Report extends React.Component {
     render() {
         return (
             <div>
-                <h1>Hello World</h1>
                 <FluxComponent connectToStores={['reports']}>
                     <Summary />
                     <ResultList />
