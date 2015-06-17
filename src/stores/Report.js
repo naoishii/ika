@@ -1,19 +1,18 @@
 import { Store } from 'flummox';
 
-export default class MessageStore extends Store {
+export default class ReportStore extends Store {
 
     constructor(flux) {
         super(); // Don't forget this step
 
         const reportActionIds = flux.getActionIds('reports');
-        this.register(reportActionIds.createMessage, this.handleNewMessage);
         this.register(reportActionIds.createRecord, this.handleNewReport);
 
         var reports = this.getData();
 
 
         this.state = {
-            reports: reports,
+            reports: reports
         };
     }
 

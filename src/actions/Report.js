@@ -1,10 +1,14 @@
 
 import { Actions } from 'flummox';
 
-export default class MessageActions extends Actions {
+export default class ReportAction extends Actions {
 
     setBuki(buki) {
         return buki;
+    }
+
+    setMap(map) {
+        return map;
     }
 
     createRecord(data) {

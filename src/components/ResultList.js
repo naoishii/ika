@@ -6,7 +6,7 @@ export default class ResultList extends React.Component {
     }
 
     calcRate(kill, death) {
-        if (death === 0) {
+        if (+death === 0) {
             death = 1;
         }
 

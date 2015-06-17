@@ -16,7 +16,9 @@ export default class Report extends React.Component {
                 <FluxComponent connectToStores={['reports']}>
                     <Summary />
                     <ResultList />
-                    <RecordAdd />
+                    <FluxComponent connectToStores={['results']}>
+                        <RecordAdd />
+                    </FluxComponent>
                 </FluxComponent>
 
             </div>
