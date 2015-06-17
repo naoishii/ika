@@ -46,10 +46,9 @@ export default class RecordAdd extends React.Component {
         console.log(e.target, e.target.getAttribute('name'), e.target.getAttribute('value'));
     }
 
-    handlePick(e) {
+    handlePick(name, value) {
         var state = this.state;
-        state[e.target.getAttribute('name')] = e.target.getAttribute('data-value');
-        console.log(e.target.value, e.target.getAttribute('name'), e.target.getAttribute('data-value'));
+        state[name] = value;
         this.setState(state);
     }
 
