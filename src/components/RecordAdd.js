@@ -5,21 +5,15 @@ import DramPicker from './DramPicker';
 export default class RecordAdd extends React.Component {
     constructor(props) {
         super(props);
-        this.mapList = [
-            { id: 'underpass', name: 'デカライン高架下', image: '', latest: Date.now()},
-            { id: 'warehouse', name: 'ハコフグ倉庫', image: '', latest: Date.now() },
-            { id: 'skatepark', name: 'Bバスパーク', image: '', latest: Date.now() },
-            { id: 'rig', name: '油田', image: '', latest: Date.now() },
-            { id: 'mall', name: 'アロワナモール', image: '', latest: Date.now() },
-            { id: 'poke', name: 'ホッケ埠頭', image: '', latest: Date.now() },
-            { id: 'dome', name: 'モズク農園', image: '', latest: Date.now() }
-        ];
-        this.state = {
-        };
+
+        this.state = this.props.results;
     }
 
     render() {
-        var picked = {};
+        var picked = {},
+            dataList = {};
+
+        dataList.mapList = this.props.results.mapList;
         picked.map = this.props.results.map;
 
         return (
@@ -27,7 +21,7 @@ export default class RecordAdd extends React.Component {
                 <input type="text" name="buki" value={this.state.buki} onChange={this.handleChange.bind(this)} placeholder="buki" autofocus /> <br />
                 <input type="text" name="map" value={this.state.map} onChange={this.handleChange.bind(this)} placeholder="map" autofocus /> <br />
                 <FluxComponent>
-                    <DramPicker onClick={this.handlePick.bind(this)} name='map' list={this.mapList} />
+                    <DramPicker onClick={this.handlePick.bind(this)} name='map' list={dataList.mapList} />
                 </FluxComponent>
                 <input type="number" name="kill" value={this.state.kill} onChange={this.handleChange.bind(this)} placeholder="kill" required /> <br />
                 <input type="number" name="death" value={this.state.death} onChange={this.handleChange.bind(this)} placeholder="death" required /> <br />

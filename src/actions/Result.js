@@ -7,6 +7,10 @@ export default class ResultAction extends Actions {
         return buki;
     }
 
+    setList(name, list) {
+        return [name, list];
+    }
+
     setMap(map) {
         return map;
     }

@@ -17,9 +17,8 @@ export default class DramPicker extends React.Component {
             return item;
         }).sort((a, b) => a.latest < b.latest);
 
-        this.setState({
-            list: list
-        });
+
+        this.props.flux.getActions('results').setList(name, list);
     }
 
     toPrev() {
@@ -42,7 +41,7 @@ export default class DramPicker extends React.Component {
 
 
     render() {
-        var list = this.state.list;
+        var list = this.props.list;
 
         console.log(list);
         var items = list.map((item, index) => {
