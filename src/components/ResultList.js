@@ -25,7 +25,6 @@ export default class ResultList extends React.Component {
                     <td>{result.kill}</td>
                     <td>{result.death}</td>
                     <td>{result.result}</td>
-                    <td>{this.calcRate(result.kill, result.death)}</td>
                 </tr>
             );
         });
@@ -40,7 +39,6 @@ export default class ResultList extends React.Component {
                             <th>たおした</th>
                             <th>やられた</th>
                             <th>勝敗</th>
-                            <th>キルレ</th>
                         </tr>
                     </thead>
                     <tbody>
