@@ -3,6 +3,7 @@ import FluxComponent from 'flummox/component';
 import TransitiveNumber from 'react-transitive-number';
 
 import DramPicker from './DramPicker';
+import ScorePicker from './ScorePicker';
 
 export default class RecordAdd extends React.Component {
     constructor(props) {
@@ -17,6 +18,8 @@ export default class RecordAdd extends React.Component {
         dataList = {
             mapList: this.props.results.mapList,
             bukiList: this.props.results.bukiList,
+            kill: this.props.results.kill,
+            death: this.props.results.death,
         };
 
         return (
@@ -31,11 +34,13 @@ export default class RecordAdd extends React.Component {
                     <DramPicker onClick={this.handlePick.bind(this)} name='map' list={dataList.mapList} />
                 </FluxComponent>
 
-                <input type="number" name="kill" value={this.state.kill} onChange={this.handleChange.bind(this)} placeholder="kill" required /> <br />
-                <TransitiveNumber>{this.state.kill || 0}</TransitiveNumber><br />
+                <FluxComponent>
+                    <ScorePicker value={dataList.kill} name='kill' />
+                </FluxComponent>
 
-                <input type="number" name="death" value={this.state.death} onChange={this.handleChange.bind(this)} placeholder="death" required /> <br />
-                <TransitiveNumber>{this.state.death || 0}</TransitiveNumber><br />
+                <FluxComponent>
+                    <ScorePicker value={dataList.death} name='death' />
+                </FluxComponent>
 
                 <input type="radio" name="result" value="win" onChange={this.handleChange.bind(this)} /> win <br />
                 <input type="radio" name="result" value="lose" onChange={this.handleChange.bind(this)} /> lose <br />

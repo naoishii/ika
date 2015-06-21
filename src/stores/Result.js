@@ -8,6 +8,7 @@ export default class ResultStore extends Store {
         const reportActionIds = flux.getActionIds('results');
         this.register(reportActionIds.setMap, this.handleSetMap);
         this.register(reportActionIds.setList, this.handleSetList);
+        this.register(reportActionIds.setScore, this.handleSetScore);
 
         var mapList = [
             { id: 'underpass', name: 'デカライン高架下', image: '', latest: Date.now()},
@@ -29,7 +30,9 @@ export default class ResultStore extends Store {
         this.state = {
             results: {
                 mapList: mapList,
-                bukiList: bukiList
+                bukiList: bukiList,
+                kill: 0,
+                death: 0
             }
         };
     }
@@ -46,13 +49,23 @@ export default class ResultStore extends Store {
         var results = this.state.results,
             name, list;
 
-        [name, list] = [data[0], data[1]];
+        [name, list] = [data.name, data.list];
         results[name + 'List'] = list;
         this.setState({
             results: results
         });
     }
 
+    handleSetScore(data) {
+        var results = this.state.results,
+            name, score;
+
+        [name, score] = [data.name, data.score];
+        results[name] = score;
+        this.setState({
+            results: results
+        });
+    }
 
 }
 

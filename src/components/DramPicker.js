@@ -36,7 +36,6 @@ export default class DramPicker extends React.Component {
     render() {
         var list = this.props.list;
 
-        console.log(list);
         var items = list.map((item, index) => {
             if (index < 12) {
                 return (
