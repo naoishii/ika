@@ -18,10 +18,18 @@ export default class ResultStore extends Store {
             { id: 'poke', name: 'ホッケ埠頭', image: '', latest: Date.now() },
             { id: 'dome', name: 'モズク農園', image: '', latest: Date.now() }
         ];
+        var bukiList = [
+            { id: 'wakaba', name: 'わかばシューター', image: '', latest: Date.now()},
+            { id: 'blaster_c', name: 'ホットブラスターカスタム', image: '', latest: Date.now()},
+            { id: 'roller', name: 'スプラローラー', image: '', latest: Date.now()},
+            { id: '98gal', name: '.98ガロン', image: '', latest: Date.now()},
+            { id: '52gal_d', name: '.52ガロンデコ', image: '', latest: Date.now()},
+        ];
 
         this.state = {
             results: {
-                mapList: mapList
+                mapList: mapList,
+                bukiList: bukiList
             }
         };
     }
@@ -43,8 +51,6 @@ export default class ResultStore extends Store {
         this.setState({
             results: results
         });
-        console.log(name, list);
-        console.log(this.state);
     }
 
 

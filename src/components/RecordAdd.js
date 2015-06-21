@@ -10,19 +10,25 @@ export default class RecordAdd extends React.Component {
     }
 
     render() {
-        var picked = {},
-            dataList = {};
+        var dataList = {};
 
-        dataList.mapList = this.props.results.mapList;
-        picked.map = this.props.results.map;
+        dataList = {
+            mapList: this.props.results.mapList,
+            bukiList: this.props.results.bukiList,
+        };
 
         return (
             <form>
                 <input type="text" name="buki" value={this.state.buki} onChange={this.handleChange.bind(this)} placeholder="buki" autofocus /> <br />
+                <FluxComponent>
+                    <DramPicker onClick={this.handlePick.bind(this)} name='buki' list={dataList.bukiList} />
+                </FluxComponent>
+
                 <input type="text" name="map" value={this.state.map} onChange={this.handleChange.bind(this)} placeholder="map" autofocus /> <br />
                 <FluxComponent>
                     <DramPicker onClick={this.handlePick.bind(this)} name='map' list={dataList.mapList} />
                 </FluxComponent>
+
                 <input type="number" name="kill" value={this.state.kill} onChange={this.handleChange.bind(this)} placeholder="kill" required /> <br />
                 <input type="number" name="death" value={this.state.death} onChange={this.handleChange.bind(this)} placeholder="death" required /> <br />
                 <input type="radio" name="result" value="win" onChange={this.handleChange.bind(this)} /> win <br />
