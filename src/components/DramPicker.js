@@ -3,14 +3,11 @@ import React from 'react';
 export default class DramPicker extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            list: this.props.list
-        };
     }
 
     handleClick(name, value) {
         this.props.onClick(name, value);
-        var list = this.state.list.map(item => {
+        var list = this.props.list.map(item => {
             if (item.name === value) {
                 item.latest = Date.now();
             }
@@ -22,21 +19,17 @@ export default class DramPicker extends React.Component {
     }
 
     toPrev() {
-        var list = this.state.list;
+        var list = this.props.list;
         var tmp = list.shift();
         list.push(tmp);
-        this.setState({
-            list: list
-        });
+        this.props.flux.getActions('results').setList(this.props.name, list);
     }
 
     toNext() {
-        var list = this.state.list;
+        var list = this.props.list;
         var tmp = list.pop();
         list.unshift(tmp);
-        this.setState({
-            list: list
-        });
+        this.props.flux.getActions('results').setList(this.props.name, list);
     }
 
 
@@ -45,7 +38,7 @@ export default class DramPicker extends React.Component {
 
         console.log(list);
         var items = list.map((item, index) => {
-            if (index < 3) {
+            if (index < 12) {
                 return (
                     <Item onClick={this.handleClick.bind(this, this.props.name, item.name)} name={this.props.name} key={item.id} val={item.name} />
                 );

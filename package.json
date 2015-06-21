@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "react": "^0.13.1",
-    "flummox": "~3.5.2"
+    "flummox": "~3.5.2",
+    "react-transitive-number": "~1.1.0"
   }
 }
